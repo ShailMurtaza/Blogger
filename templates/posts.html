@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+{% block head %}
+<title>Posts</title>
+{% endblock %}
+{% block body %}
+
+<hr>
+<h1>Add Posts</h1>
+<table>
+<form action="posts" method="post">
+<tr><th>Title </th><td><input type="text" name="title" placeholder="Title"></td></tr>
+<tr><th>Auther </th><td><input type="text" name="auther" placeholder="Auther"></td></tr>
+<tr><th>Content </th><td><textarea type="text" name="content" placeholder="Content" style="height:50px"></textarea></td></tr>
+<tr><td><input type="submit" value="Post" class="btn btn-primary"></td></tr>
+</form>
+</table>
+<hr>
+<hr>
+<h1>All Posts</h1>
+{% for post in posts %}
+
+<div class="col-sm-8 mx-auto jumbotron">
+{{ post.title }}<br>
+BY ::  {{ post.auther }}<br>
+<pre>{{ post.content }}</pre><br>
+<input  class="btn btn-danger" type="button" onclick='location.href="/post/delete/{{post.id}}"' value="Delete"><input class="btn btn-primary" type="button" onclick='location.href="/post/update/{{post.id}}"' value="Update">
+</div>
+<hr>
+{% endfor %}
+
+{% endblock %}
+

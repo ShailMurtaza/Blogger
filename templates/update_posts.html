@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{% block head %}
+<title>Add Posts</title>
+{% endblock %}
+{% block body %}
+<hr>
+<form action="/post/update/{{ update_post.id }}" method="post"><br>
+<label for="title">title</label> <input type="text" name="title" id="title" value="{{ update_post.title }}"><br>
+<label for="auther">Auther</label> <input type="text" name="auther" id="auther" value="{{ update_post.auther }}"><br>
+<label for="content">Content</label> <textarea type="text" name="content" id="content" style="">{{ update_post.content }}</textarea><br>
+<input type="submit" value="Update" class="btn btn-primary">
+</form>
+<hr>
+{% endblock %}
